@@ -1,29 +1,40 @@
 package org.example.Models;
 
-public class User {
-    private int ID;
-    private String username;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "users")
+public class UserModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column(name = "username")
+    private String name;
+    @Column
     private String type;
 
-    public User(String username, String type) {
-        this.username = username;
+    public UserModel(){}
+
+    public UserModel(String username, String type) {
+        this.name = username;
         this.type = type;
     }
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {
-        return username;
+        return name;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.name = username;
     }
 
     public String getType() {
